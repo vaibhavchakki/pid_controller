@@ -1,0 +1,29 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+As part of this project, we implement a PID (Proportional, Integral, Derivative) controller for driving the car in autonomous mode around the track.\
+\uc0\u8232 \
+Effects of P, I, D Component of PID Algorithm on Car control\
+\uc0\u8232 \
+As part of this project, the P, I, and D values were manually tuned. The chosen values are as below:\
+Kp = 0.2\
+Ki = 0.004\
+Kd = 4.0 \
+\uc0\u8232 \
+1. Effect of Kp on car control (P) - Kp is the proportional component, that is proportional to the steering angle.\
+Choosing a larger value of Kp like 0.5 made the car to oversteer in order to reduce the cross track error sooner and ended into more like oscillation behavior. \
+Choosing a smaller value of Kp, like 0.001 did not provide sufficient time to steer during the turns to reduce the cross track error. So in my case the best value worked was 0.2\
+\uc0\u8232 \
+2. Effect of Ki on Car control (I) - Ki is the integral component used to correct any Systematic Bias error. \
+Choosing a large value of Ki, over accounts the bias and immediately causes the car to go off track, eventually observed that the car just want to move in a circle in this case.\
+Choosing a smaller value of Ki, like 0 in this case did not cause significant difference to the cars behavior on track, may be we there was no bias component that needed correction over time in this case. However observed that the car did move a little closer to the track edges.\
+\uc0\u8232 \
+3. Effect of Kd on Car Control (D) - The Derivative component is used to counter steer and avoid overshooting, when the car has turned enough to reduce the Cross track error. So that eventually the oscillating behavior dies down.\
+Choosing a large value of Kd - like 50, made the car counter steer too many times, which caused more like smaller oscillations in the car behavior and this in turn affected the velocity/speed of car even in a straight line.\
+Choosing a smaller value of Kd - like 0.1, did not dampen the oscillation enough and track quickly steered off track as expected }
