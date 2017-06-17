@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1504.83">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">As part of this project, we implement a PID (Proportional, Integral, Derivative) controller for driving the car in autonomous mode around the track.</p>
+<p class="p2"><br></p>
+<p class="p1">Effects of P, I, D Component of PID Algorithm on Car control</p>
+<p class="p2"><br></p>
+<p class="p1">As part of this project, the P, I, and D values were manually tuned. The chosen values are as below:</p>
+<p class="p1">Kp = 0.2</p>
+<p class="p1">Ki = 0.004</p>
+<p class="p1">Kd = 4.0<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<p class="p1">1. Effect of Kp on car control (P) - Kp is the proportional component, that is proportional to the steering angle.</p>
+<p class="p1">Choosing a larger value of Kp like 0.5 made the car to oversteer in order to reduce the cross track error sooner and ended into more like oscillation behavior.<span class="Apple-converted-space"> </span></p>
+<p class="p1">Choosing a smaller value of Kp, like 0.001 did not provide sufficient time to steer during the turns to reduce the cross track error. So in my case the best value worked was 0.2</p>
+<p class="p2"><br></p>
+<p class="p1">2. Effect of Ki on Car control (I) - Ki is the integral component used to correct any Systematic Bias error.<span class="Apple-converted-space"> </span></p>
+<p class="p1">Choosing a large value of Ki, over accounts the bias and immediately causes the car to go off track, eventually observed that the car just want to move in a circle in this case.</p>
+<p class="p1">Choosing a smaller value of Ki, like 0 in this case did not cause significant difference to the cars behavior on track, may be we there was no bias component that needed correction over time in this case. However observed that the car did move a little closer to the track edges.</p>
+<p class="p2"><br></p>
+<p class="p1">3. Effect of Kd on Car Control (D) - The Derivative component is used to counter steer and avoid overshooting, when the car has turned enough to reduce the Cross track error. So that eventually the oscillating behavior dies down.</p>
+<p class="p1">Choosing a large value of Kd - like 50, made the car counter steer too many times, which caused more like smaller oscillations in the car behavior and this in turn affected the velocity/speed of car even in a straight line.</p>
+<p class="p1">Choosing a smaller value of Kd - like 0.1, did not dampen the oscillation enough and track quickly steered off track as expected<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+</body>
+</html>
